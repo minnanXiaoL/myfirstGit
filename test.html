@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="assets/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="assets/element-ui/vue.js"></script>
+  <script type="text/javascript" src="assets/element-ui/index.js"></script>
+  <script type="text/javascript" src="assets/echarts-4.6.0/echarts.min.js"></script>
+  <script type="text/javascript" src="js/test.js"></script>
+</head>
+<body>
+  <!-- <div id="app" style="height:1080px; width:1920px;"> -->
+  <div id="app" style="height:641px; width:1358px;">
+  	<el-container style="height: 100%; border: 1px solid #eee">
+	  <el-container>
+	    <div id="index-map" style="height:578px; width:1156px;">
+	    </div>
+	  </el-container>
+	</el-container>
+	
+  </div>
+</body>
+<script>
+var Main = {
+	data: function() {
+      return {}
+    },
+    methods: {},
+    mounted: function(){}    
+};
+var Ctor = Vue.extend(Main);
+new Ctor().$mount('#app');
+
+var option = {
+    xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line'
+    }]
+};
+	
+var mapChart = echarts.init(document.getElementById('index-map'));
+mapChart.setOption(option);
+</script>
+</html>
